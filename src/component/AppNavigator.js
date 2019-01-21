@@ -4,15 +4,19 @@ import {
   } from 'react-navigation';
 import AppDetails from './AppDetail';
 import Home from './Home';
+import BottomNav from './bottomNav';
+import Drawer from './drawer';
 
 const RootStack = createStackNavigator(
     {
       Home: Home,
-      Detail:AppDetails
+      Detail:AppDetails,
+      Bottom:BottomNav,
+      drawer:Drawer
     },
     {
       initialRouteName: 'Home'
-        }
+      }
     
   );
   
