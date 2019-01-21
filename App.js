@@ -6,6 +6,7 @@ import Header from './src/component/Header';
 import Banner from './src/component/Banner';
 import Grid   from './src/component/Grid';
 import AppNavigator from './src/component/AppNavigator';
+import Drawer from './src/component/drawer';
 
 //import ChatScreen from './AppDetail';
 //import HomeScreen from './Home';
@@ -48,7 +49,8 @@ export default class App extends React.Component {
   //   <Banner/>
   //   <Grid/>
   // </ScrollView>
-  <AppNavigator/>
+   <AppNavigator/>
+  //<Drawer/>
       
     );
   }
