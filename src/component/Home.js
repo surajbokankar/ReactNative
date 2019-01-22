@@ -3,17 +3,20 @@ import Header from './Header';
 import Slider from './Slider';
 import Login   from './Login';
 import SignUp   from './SignUp';
+import AppDetails   from './AppDetail';
 import { StyleSheet,View} from 'react-native';
-
+import Drawer from './drawer';
+import MyComponent from "./bottomNav";
 
 export default class Home extends React.Component {
    render(){
        console.log('Home ',this.props)
     return(
       <View style={styles.container}>
-      <SignUp navigation={this.props.navigation}/>
-            {/* <Slider/>
-          <Login navigation={this.props.navigation}/> */}
+       {/* <SignUp navigation={this.props.navigation}/> */} 
+              {/* <AppDetails navigation={this.props.navigation}/>  */}
+            
+           <Login navigation={this.props.navigation}/>  
         </View>
     );
    }

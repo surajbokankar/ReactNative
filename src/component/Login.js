@@ -1,8 +1,11 @@
 import React,{Component} from "react";
-import {View, Text, TouchableOpacity,TouchableHighlight, TextInput, StyleSheet } from "react-native";
+import {View, Text, TouchableOpacity,TouchableHighlight, Button, StyleSheet } from "react-native";
+import { TextField } from 'react-native-material-textfield';
+// import Button from 'material-ui';
 export default class Login extends Component {
+  navigation = null;
   static navigationOptions = {
-    title: "Welcome"
+    title: "Login"
   }
     state = {
         email: '',
@@ -21,20 +24,19 @@ export default class Login extends Component {
       navigation=this.props.navigation;
       return (
         <View style = {styles.container}>
-            <TextInput style = {styles.input}
+            <TextField style = {styles.input}
                underlineColorAndroid = "transparent"
-               placeholder = "Email"
+               label = "Email"
                placeholderTextColor = "#0b395b"
                autoCapitalize = "none"
                onChangeText = {this.handleEmail}/>
-            
-            <TextInput style = {styles.input}
+            <TextField style = {styles.input}
                underlineColorAndroid = "transparent"
-               placeholder = "Password"
+               label ="Password"
+               accessibilityLabel = "Password"
                placeholderTextColor = "#0b395b"
                autoCapitalize = "none"
-               onChangeText = {this.handlePassword}/>
-            
+               onChangeText = {this.handlePassword}/>        
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
@@ -42,12 +44,8 @@ export default class Login extends Component {
                }>
                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>
-            <TouchableHighlight
-              onPress={() => navigation.navigate('SignUp')}
-              style={styles.button}>
-              <Text
-                style={styles.buttonText}>Register Now</Text>
-            </TouchableHighlight>
+            <Button onPress={() => navigation.navigate('SignUp')} title="Register Now">
+            </Button>
          </View>
       
       );
@@ -56,15 +54,15 @@ export default class Login extends Component {
 
   const styles = StyleSheet.create({
     container: {
-      flex:1
-    },
-    input: {
-       margin: 15,
-       height: 40,
-       width:100,
-       borderColor: '#0b395b',
-       borderWidth: 1
-    },
+      flex:1,
+      marginLeft: 15,
+      marginRight:15
+   },
+   input: {
+      marginLeft: 15,
+      marginRight:15
+
+   },
     submitButton: {
        backgroundColor: '#00b0af',
        padding: 10,

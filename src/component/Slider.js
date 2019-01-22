@@ -70,6 +70,7 @@ export default class Slider extends React.Component {
               size={24}
               style={{ backgroundColor: 'transparent' }}
             />
+            
           </View>
         );
       }
