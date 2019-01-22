@@ -7,6 +7,8 @@ import Home from './Home';
 import SignUp from './SignUp';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import BottomNav from './bottomNav';
+import Drawer from './drawer';
 
 const RootStack = createStackNavigator(
     {
@@ -14,12 +16,13 @@ const RootStack = createStackNavigator(
       Detail:AppDetails,
       Login : Login,
       SignUp : SignUp,
-      Dashboard: Dashboard
-
+      Dashboard: Dashboard,
+      Bottom:BottomNav,
+      drawer:Drawer
     },
     {
       initialRouteName: 'Home'
-        }
+      }
     
   );
   
