@@ -1,22 +1,23 @@
 import React from 'react';
 import Header from './Header';
-import Banner from './Banner';
-import Grid   from './Grid';
-import { StyleSheet,ScrollView} from 'react-native';
-
+import Slider from './Slider';
+import Login   from './Login';
+import SignUp   from './SignUp';
+import AppDetails   from './AppDetail';
+import { StyleSheet,View} from 'react-native';
+import Drawer from './drawer';
+import MyComponent from "./bottomNav";
 
 export default class Home extends React.Component {
-    static navigationOptions ={
-              title:'Home'
-    };
    render(){
        console.log('Home ',this.props)
     return(
-<ScrollView style={styles.container}>
-    <Header/>
-    <Banner/>
-    <Grid navigation={this.props.navigation}/>
-  </ScrollView>
+      <View style={styles.container}>
+       {/* <SignUp navigation={this.props.navigation}/> */} 
+              {/* <AppDetails navigation={this.props.navigation}/>  */}
+            
+           <Login navigation={this.props.navigation}/>  
+        </View>
     );
    }
 

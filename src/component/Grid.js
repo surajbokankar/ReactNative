@@ -51,7 +51,7 @@ class BestGrid extends React.Component {
         key = { item.id }
         style = {{ width: itemSize, height: itemSize, paddingHorizontal: itemPaddingHorizontal }}
         title="Go to Details... again"
-        onPress={() => navigation.navigate('Detail')}
+        onPress={() => navigation.navigate('Bottom')}
         >
         <Image
           resizeMode = "cover"
