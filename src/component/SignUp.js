@@ -74,16 +74,8 @@ export default class SignUp extends Component {
               }}
                />
             </TouchableOpacity>
+            
             <Button title='Dashboard' 
-            buttonStyle={{
-              backgroundColor: "rgba(92, 99,216, 1)",
-              width: 300,
-              height: 45,
-              borderColor: "transparent",
-              borderWidth: 0,
-              borderRadius: 5,
-              marginTop : 10
-            }}
             onPress={() => navigation.navigate('Bottom')} />
 
          </View>
