@@ -1,22 +1,52 @@
 import React from 'react';
-import Header from './Header';
-import Slider from './Slider';
 import Login   from './Login';
-import SignUp   from './SignUp';
-import AppDetails   from './AppDetail';
-import { StyleSheet,View} from 'react-native';
-import Drawer from './drawer';
-import MyComponent from "./bottomNav";
+import { StyleSheet,View,Button,Alert} from 'react-native';
 
+import { Permissions, Contacts } from 'expo';
 export default class Home extends React.Component {
+  static navigationOptions = {
+    title: "Login",
+    headerStyle: {
+      backgroundColor: "#0b395b"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  }
+  async showFirstContactAsync() {
+    // Ask for permission to query contacts.
+    const permission = await Permissions.askAsync(Permissions.CONTACTS);
+    
+    if (permission.status !== 'granted') {
+      // Permission was denied...
+      return;
+    }
+    const contacts = await Contacts.getContactsAsync({
+      fields: [
+        Contacts.PHONE_NUMBERS,
+        Contacts.EMAILS,
+      ],
+      pageSize: 10,
+      pageOffset: 0,
+    });
+    if (contacts.total > 0) {
+      Alert.alert(
+        'Your first contact is...',
+        `Name: ${contacts.data[0].name}\n` +
+        `Phone numbers: ${contacts.data[0].phoneNumbers[0].number}\n` +
+        `Emails: ${contacts.data[0].emails[0].email}`
+      );
+    }
+  }
    render(){
        console.log('Home ',this.props)
     return(
       <View style={styles.container}>
        {/* <SignUp navigation={this.props.navigation}/> */} 
               {/* <AppDetails navigation={this.props.navigation}/>  */}
-            
            <Login navigation={this.props.navigation}/>  
+           <Button title='Get contacts' onPress={this.showFirstContactAsync} />
         </View>
     );
    }
