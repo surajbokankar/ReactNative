@@ -1,9 +1,12 @@
 import React,{Component} from 'react';
 import {View,ScrollView,StyleSheet,Button,SectionList} from 'react-native';
-import {  Card, Title, Paragraph } from "react-native-paper";
+import {  Card, Title, Paragraph,RadioButton ,Text} from "react-native-paper";
 import { SectionGrid } from 'react-native-super-grid';
 
-export default class AppliedLoan extends Component{
+export default class LoanTopUp extends Component{
+    state = {
+        checked: '',
+      };
     static navigationOptions ={
         title:'Apply Loan',
         headerStyle: {
@@ -20,14 +23,15 @@ export default class AppliedLoan extends Component{
             { loanId: 'PL00003078', loanAmnt: '9999999' , tenure:'12'},
             { loanId: 'PL00003079', loanAmnt: '9999999' , tenure:'12'},
             { loanId: 'PL00003080', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003077', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003078', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003079', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003080', loanAmnt: '9999999' , tenure:'12'},
+            { loanId: 'PL00003081', loanAmnt: '9999999' , tenure:'12'},
+            { loanId: 'PL00003082', loanAmnt: '9999999' , tenure:'12'},
+            { loanId: 'PL00003083', loanAmnt: '9999999' , tenure:'12'},
+            { loanId: 'PL00003084', loanAmnt: '9999999' , tenure:'12'},
            
             
           ];
         navigation=this.props.navigation;
+        const { checked } = this.state;
         return(
             <ScrollView >
             <SectionList
@@ -39,20 +43,26 @@ export default class AppliedLoan extends Component{
           },
         ]}
         style={styles.gridView}
-        renderItem={({ item, section, index }) => (
+        renderItem={({ item}) => (
             <View 
             style={styles.container} >
             <Card>
-                <Card.Content>
-                <Title>{item.loanId}</Title>
-                <Paragraph>Loan Amount : {item.loanAmnt}</Paragraph>
-                <Paragraph>Tenure(In Months) :{item.tenure}</Paragraph>
-                </Card.Content>
-                <Card.Actions>
-                <Button 
-                onPress={() => navigation.navigate('LoanDetails')}
-                title="View Detail"></Button>
-                </Card.Actions>
+            <RadioButton.Group
+                    onValueChange={value => this.setState({ value })}
+                    value={this.state.value}
+                    status={checked === '{item.loanId}' ? 'checked' : 'unchecked'}
+                    onSelect = {(index, value) => this.onSelect(index, value)}
+                    // onPress={() => { this.setState({ checked: '{item.loanId}' }); }}
+                    >
+                
+                    <Card.Content>
+                    <RadioButton style={styles.radioButton} value={item.loanId}> </RadioButton>
+                    <Text>{item.loanId} </Text>
+                    <Paragraph>Loan Amount : {item.loanAmnt}</Paragraph>
+                    <Paragraph>Tenure(In Months) :{item.tenure}</Paragraph>
+                    </Card.Content>
+                    
+            </RadioButton.Group>
             </Card>
             </View>
             )}/>
@@ -81,4 +91,8 @@ const styles = StyleSheet.create({
         marginBottom:20,
 
       },
+    radioButton:{
+        alignSelf: 'flex-end'
+    }
+     
   });

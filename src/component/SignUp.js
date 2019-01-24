@@ -1,14 +1,15 @@
 import React,{Component} from "react";
-import {View, Text, TouchableOpacity,TouchableHighlight, TextInput, StyleSheet } from "react-native";
+import {View, Text, TouchableOpacity,TouchableHighlight, TextInput,Button, StyleSheet } from "react-native";
 import { TextField } from 'react-native-material-textfield';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+
 
 export default class SignUp extends Component {
     navigation=null;
     static navigationOptions = {
       title: "Sign Up",
       headerStyle: {
-        backgroundColor: "#03A9F4"
+        backgroundColor: "#0b395b"
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -59,19 +60,24 @@ export default class SignUp extends Component {
                 onCancel={this._hideDateTimePicker}
                 />
             
-            <TouchableOpacity
-               style = {styles.submitButton}
-               onPress = {
-                  () => this.login(this.state.email, this.state.password)
-               }>
-               <Text style = {styles.submitButtonText}> Submit </Text>
+            <TouchableOpacity>
+               <Button 
+               onPress = {() => this.login(this.state.email, this.state.password)} 
+               title="Submit"
+               buttonStyle={{
+                backgroundColor: "rgba(92, 99,216, 1)",
+                width: 300,
+                height: 45,
+                borderColor: "transparent",
+                borderWidth: 0,
+                borderRadius: 5
+              }}
+               />
             </TouchableOpacity>
-            <TouchableHighlight
-              onPress={() => navigation.navigate('Bottom')}
-              style={styles.button}>
-              <Text
-                style={styles.buttonText}>Dashboard </Text>
-            </TouchableHighlight>
+            
+            <Button title='Dashboard' 
+            onPress={() => navigation.navigate('Bottom')} />
+
          </View>
       
       );
@@ -90,7 +96,7 @@ export default class SignUp extends Component {
 
     },
     submitButton: {
-       backgroundColor: '#03A9F4',
+       backgroundColor: '#00b0af',
        padding: 10,
        margin: 15,
        height: 40,

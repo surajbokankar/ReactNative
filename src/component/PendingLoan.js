@@ -3,9 +3,9 @@ import {View,ScrollView,StyleSheet,Button,SectionList} from 'react-native';
 import {  Card, Title, Paragraph } from "react-native-paper";
 import { SectionGrid } from 'react-native-super-grid';
 
-export default class AppliedLoan extends Component{
+export default class PendingLoan extends Component{
     static navigationOptions ={
-        title:'Apply Loan',
+        title:'Pending Loan',
         headerStyle: {
         backgroundColor: "#03A9F4"
       },

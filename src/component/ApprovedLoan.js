@@ -3,9 +3,9 @@ import {View,ScrollView,StyleSheet,Button,SectionList} from 'react-native';
 import {  Card, Title, Paragraph } from "react-native-paper";
 import { SectionGrid } from 'react-native-super-grid';
 
-export default class AppliedLoan extends Component{
+export default class ApprovedLoan extends Component{
     static navigationOptions ={
-        title:'Apply Loan',
+        title:'Approved Loans',
         headerStyle: {
         backgroundColor: "#03A9F4"
       },
@@ -18,14 +18,6 @@ export default class AppliedLoan extends Component{
         const items = [
             { loanId: 'PL00003077', loanAmnt: '9999999' , tenure:'12'},
             { loanId: 'PL00003078', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003079', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003080', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003077', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003078', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003079', loanAmnt: '9999999' , tenure:'12'},
-            { loanId: 'PL00003080', loanAmnt: '9999999' , tenure:'12'},
-           
-            
           ];
         navigation=this.props.navigation;
         return(
