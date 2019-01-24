@@ -3,6 +3,7 @@ import {View,Text,TouchableOpacity} from 'react-native';
 
 
 export default class LoanDetails extends Component{
+    // navigation = null;
     static navigationOptions ={
         title:'Loan Details',
         headerStyle: {
@@ -14,7 +15,7 @@ export default class LoanDetails extends Component{
       }
     }
     render(){
-        navigation=this.props.navigation;
+        // navigation=this.props.navigation;
         return(
             <View>
                <Text>LoanDetails Page</Text>  

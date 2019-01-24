@@ -16,7 +16,7 @@ export default class ApplyLoan extends Component{
       }
     }
     render(){
-        navigation=this.props.navigation;
+       // navigation=this.props.navigation;
         return(
             <ScrollView>
                 <View style={styles.container}>
